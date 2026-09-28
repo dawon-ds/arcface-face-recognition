@@ -1,0 +1,13 @@
+model:
+  name: buffalo_l
+  providers:
+    - CPUExecutionProvider
+
+paths:
+  target_dir: data/target
+  candidate_dir: data/celeb
+  output_dir: output
+  cache_dir: cache
+
+recognition:
+  threshold: 0.6
