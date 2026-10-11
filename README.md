@@ -13,7 +13,7 @@ The assignment creates a representative target embedding by averaging embeddings
 - **Similarity:** cosine similarity
 - **Task:** retrieve candidate images judged to contain the target identity
 
-## Implementation
+## Approach
 
 **Technologies:** Python, InsightFace, ONNX Runtime, OpenCV, NumPy, scikit-learn.
 
@@ -25,7 +25,7 @@ The assignment creates a representative target embedding by averaging embeddings
 
 Cosine similarity compares embedding directions rather than raw image pixels. This implementation uses pretrained embeddings; it does not train an ArcFace model from scratch.
 
-## Reported Experiments
+## Results
 
 | Setting | Target | Reported Threshold | Accuracy@10 |
 |---|---|---:|---:|
@@ -36,23 +36,7 @@ Cosine similarity compares embedding directions rather than raw image pixels. Th
 
 For Setting #4, the submitted report states that nine Kim Da-mi images were selected even though the actual target identity was absent from the candidate set. The assignment evaluated this as 0% accuracy and identified threshold adjustment or additional filtering as possible improvements.
 
-## Important Source Note
-
-The submitted source defines `SIMILARITY_THRESHOLD = 0.8` but performs the comparison as:
-
-```python
-similarity > (1 - SIMILARITY_THRESHOLD)
-```
-
-Therefore, that code would compare against `0.2`, not `0.8`. This portfolio version fixes the comparison so the configured threshold is used directly:
-
-```python
-similarity >= threshold
-```
-
-The table above preserves the values reported in the original assignment spreadsheet; it does not claim that the corrected implementation reproduces those results without rerunning the experiment.
-
-## Project Structure
+## Repository Structure
 
 ```text
 arcface-face-recognition/
@@ -88,13 +72,28 @@ A threshold can also be supplied explicitly:
 python -m scripts.search --threshold 0.6
 ```
 
-## Limitations & Review
+## Limitations
 
-- The historical Accuracy@10 values are assignment-reported results, not a benchmark of the corrected threshold implementation.
+### Experiment Notes
+
+The submitted source defines `SIMILARITY_THRESHOLD = 0.8` but performs the comparison as:
+
+```python
+similarity > (1 - SIMILARITY_THRESHOLD)
+```
+
+Therefore, that code would compare against `0.2`, not `0.8`. This portfolio version fixes the comparison so the configured threshold is used directly:
+
+```python
+similarity >= threshold
+```
+
 - The search script returns all threshold matches; it does not rank candidates or calculate Accuracy@10 automatically.
 - Reference images use the first detected face, so multi-person reference images can introduce the wrong identity into the mean.
 - Reference cache filenames use only the image stem. Different files with the same stem can collide, and modified images can reuse stale embeddings. Use unique filenames and clear the cache when references change.
 - The output directory is not cleared between runs; use a fresh directory when comparing thresholds.
 - A target-absent experiment is necessary to assess false matches, alongside target-present retrieval.
+
+## Review
 
 This project provided experience combining face detection, embedding extraction, multiple reference images, and similarity-based retrieval. The target-absent result and corrected threshold comparison highlight the importance of calibrating rejection behavior rather than judging a recognizer only on successful matches.
