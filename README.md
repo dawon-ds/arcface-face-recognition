@@ -2,7 +2,6 @@
 
 Face recognition experiment using InsightFace `buffalo_l` embeddings and cosine similarity.
 
-[Portfolio](https://incredible-march-0ef.notion.site/Face-Recognition-with-ArcFace-Embeddings-3e968564df5a8159b098cbb37e81725e)
 
 ## Project Overview
 
