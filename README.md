@@ -99,3 +99,10 @@ similarity >= threshold
 ## Review
 
 This project provided experience combining face detection, embedding extraction, multiple reference images, and similarity-based retrieval. The target-absent result and corrected threshold comparison highlight the importance of calibrating rejection behavior rather than judging a recognizer only on successful matches.
+
+## Data and Third-party Resources
+
+- **Pretrained model:** [InsightFace model zoo](https://github.com/deepinsight/insightface/tree/master/model_zoo), `buffalo_l`. InsightFace code is MIT licensed, but its released pretrained model packs are for **non-commercial research use** unless separately licensed.
+- **Images:** reference and candidate face images are not bundled. Use only images with appropriate rights and permissions.
+
+Dependency lists are in `requirements.txt`; unless versions are explicitly pinned there, they do not reproduce an exact historical software environment. No redistribution permission for third-party inputs is implied by this repository.
