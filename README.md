@@ -1,5 +1,7 @@
 # Face Recognition with ArcFace Embeddings
 
+[Portfolio Page](https://app.notion.com/p/3e968564df5a8159b098cbb37e81725e)
+
 Face recognition experiment using InsightFace `buffalo_l` embeddings and cosine similarity.
 
 
