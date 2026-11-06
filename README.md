@@ -23,11 +23,8 @@ Cosine similarity compares embedding directions rather than raw image pixels. Th
 | #1 | Song Joong-ki | 0.6 | 100% |
 | #2 | Han So-hee | 0.6 | 100% |
 | #3 | Cha Eun-woo | 0.5 | 100% |
-| #4 | Self | 0.8 | 0% |
 
 These percentages are drawn from the assignment evaluation, not calculated automatically by the current retrieval script.
-
-For Setting #4, the submitted report states that nine Kim Da-mi images were selected even though the actual target identity was absent from the candidate set. The assignment evaluated this as 0% accuracy and identified threshold adjustment or additional filtering as possible improvements.
 
 ## Repository Structure
 
