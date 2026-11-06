@@ -74,7 +74,7 @@ Therefore, that code would compare against `0.2`, not `0.8`. This portfolio vers
 similarity >= threshold
 ```
 
-- The search script returns all threshold matches; it does not rank candidates or calculate Accuracy@10 automatically.
+- The search script returns all matches that meet the similarity threshold rather than ranking candidates.
 - Reference images use the first detected face, so multi-person reference images can introduce the wrong identity into the mean.
 - Reference cache filenames use only the image stem. Different files with the same stem can collide, and modified images can reuse stale embeddings. Use unique filenames and clear the cache when references change.
 - The output directory is not cleared between runs; use a fresh directory when comparing thresholds.
