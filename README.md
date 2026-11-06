@@ -25,7 +25,7 @@ Cosine similarity compares embedding directions rather than raw image pixels. Th
 | #3 | Cha Eun-woo | 0.5 | 100% |
 | #4 | Self image | 0.8 | 0% |
 
-An additional search without the target identity in the candidate set returned another person's images, highlighting the importance of similarity threshold selection.
+In Setting #4, the target identity was absent from the candidate set, but nine Kim Da-mi images were selected. This indicates false matches in a target-absent search, not a failure to recognize a target that was present. The original threshold calculation effectively compared similarity against 0.2 when configured as 0.8, which may have contributed to these matches.
 
 ## Repository Structure
 
