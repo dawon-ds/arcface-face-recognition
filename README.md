@@ -18,13 +18,11 @@ Cosine similarity compares embedding directions rather than raw image pixels. Th
 
 ## Results
 
-| Setting | Target | Reported Threshold | Reported Accuracy@10 |
+| Setting | Target | Threshold | Accuracy@10 |
 |---|---|---:|---:|
 | #1 | Song Joong-ki | 0.6 | 100% |
 | #2 | Han So-hee | 0.6 | 100% |
 | #3 | Cha Eun-woo | 0.5 | 100% |
-
-These percentages are drawn from the assignment evaluation, not calculated automatically by the current retrieval script.
 
 ## Repository Structure
 
