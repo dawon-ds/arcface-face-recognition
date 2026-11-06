@@ -2,17 +2,7 @@
 
 [Portfolio Page](https://app.notion.com/p/3e968564df5a8159b098cbb37e81725e)
 
-Face recognition experiment using InsightFace `buffalo_l` embeddings and cosine similarity.
-
-
-## Project Overview
-
-The assignment creates a representative target embedding by averaging embeddings from images in `target/`, then compares candidate faces in `celeb/` against that embedding using cosine similarity.
-
-- **Model:** InsightFace `buffalo_l`
-- **Representation:** face embedding
-- **Similarity:** cosine similarity
-- **Task:** retrieve candidate images judged to contain the target identity
+Face retrieval using pretrained InsightFace `buffalo_l` embeddings, averaging multiple target face embeddings and comparing candidate faces with cosine similarity.
 
 ## Approach
 
@@ -77,8 +67,6 @@ python -m scripts.search --threshold 0.6
 
 ## Limitations
 
-### Experiment Notes
-
 The submitted source defines `SIMILARITY_THRESHOLD = 0.8` but performs the comparison as:
 
 ```python
@@ -95,11 +83,6 @@ similarity >= threshold
 - Reference images use the first detected face, so multi-person reference images can introduce the wrong identity into the mean.
 - Reference cache filenames use only the image stem. Different files with the same stem can collide, and modified images can reuse stale embeddings. Use unique filenames and clear the cache when references change.
 - The output directory is not cleared between runs; use a fresh directory when comparing thresholds.
-- A target-absent experiment is necessary to assess false matches, alongside target-present retrieval.
-
-## Review
-
-This project provided experience combining face detection, embedding extraction, multiple reference images, and similarity-based retrieval. The target-absent result and corrected threshold comparison highlight the importance of calibrating rejection behavior rather than judging a recognizer only on successful matches.
 
 ## Data and Third-party Resources
 
